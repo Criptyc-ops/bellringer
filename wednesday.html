@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grow Text</title>
+    <style>
+        p {
+            font-size: 10px;
+        }
+    </style>
+</head>
+<body>
+    <p id="text">Watch me grow!</p>
+    <script>
+        function growText() {
+            const textElement = document.getElementById('text');
+            let fontSize = 10; // Initial font size in pixels
+            const maxFontSize = 20; // Maximum font size in pixels
+
+            const interval = setInterval(() => {
+                if (fontSize < maxFontSize) {
+                    fontSize += 2; // Increase font size by 2px
+                    textElement.style.fontSize = fontSize + 'px';
+                } else {
+                    clearInterval(interval); // Stop the interval when max size is reached
+                }
+            }, 1000); // Run every second
+        }
+
+        growText();
+    </script>
+</body>
+</html>
