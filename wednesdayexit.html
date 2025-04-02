@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grow Text with jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <p id="text">Watch me grow!</p>
+    <script>
+        $(document).ready(function() {
+            // Set initial styles using jQuery
+            $('#text').css({
+                'font-size': '10px',
+                'margin': '20px',
+                'color': 'black'
+            });
+
+            // Function to grow text
+            function growText() {
+                let fontSize = 10; // Initial font size in pixels
+                const maxFontSize = 20; // Maximum font size in pixels
+
+                const interval = setInterval(() => {
+                    if (fontSize < maxFontSize) {
+                        fontSize += 2; // Increase font size by 2px
+                        $('#text').css('font-size', fontSize + 'px');
+                    } else {
+                        clearInterval(interval); // Stop the interval when max size is reached
+                    }
+                }, 1000); // Run every second
+            }
+
+            growText();
+        });
+    </script>
+</body>
+</html>
